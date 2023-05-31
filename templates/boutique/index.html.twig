@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}La Boutique d'Opal BD{% endblock %}
+
+{% block content %}
+
+
+
+
+
+<div class="row">
+        <h3>Nos produits</h3>
+	<div class="accordion mx-auto w-50" id="accordionAuteurs">
+		<div class="accordion-item">
+			<h2 class="accordion-header" id="headingOne">
+				<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+					Filtres
+				</button>
+			</h2>
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="mx-1 mt-2">
+                    {{ form(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="">
+        <div class="row product-container">
+            {% for product in products %}
+                <div class="col-md-4">
+                    <div class="product-item text-center">
+                        <a href="{{ path('app_boutique_produit', { 'slug' : product.slug}) }}">
+                        <img src="/uploads/{{ product.illustration}}" alt="{{ product.name}}" width="auto" height="320px">
+                        </a>
+                        <h5>{{ product.name }}</h5>
+                        <span class="product-subtitle">{{ product.subtitle }}</span>
+                        <span class="product-price">{{ (product.price / 100)|number_format(2, ',', '.') }} €</span>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<script>
+
+const checkbox = document.querySelectorAll(".form-check");
+checkbox.forEach(check=>{
+    check.classList.add("col-6");
+})
+
+const submit = document.getElementById('submit');
+submit.parentNode.classList.add("d-flex", "justify-content-center");
+</script>
+{% endblock %}

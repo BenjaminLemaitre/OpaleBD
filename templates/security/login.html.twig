@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Se connecter - OpaleBD{% endblock %}
+
+{% block script %} <link rel="stylesheet" href="{{ asset('assets/css/login.css')}}"> {% endblock %}
+
+{% block content %}
+
+    {% for message in app.flashes('Validation') %}
+            <div class="alert alert-success text-center">{{ message }}</div>
+    {% endfor %}
+
+<form method="post">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+
+    <h1 class="titre">Connexion</h1>
+<div class="page row d-flex mx-auto">
+
+    <div class="d-flex flex-column justify-content-center align-items-center col-lg-6">
+
+        <label for="inputEmail" class="text-center"><h2 class="label">Email</h2></label>
+        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control champ" autocomplete="email" required autofocus>
+
+    <hr style='visibility : hidden'>
+
+        <label for="inputPassword"><h2 class="label">Mot de passe</h2></label>
+        <input type="password" name="password" id="inputPassword" class="form-control champ" autocomplete="current-password" required>
+
+        <input type="hidden" name="_csrf_token"
+                value="{{ csrf_token('authenticate') }}"
+        >
+
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <button class="btn btn-lg btn-primary btn-md mt-2 submitbutton" type="submit">
+            Connexion
+            </button>
+        </div>
+
+    </div>
+
+    {#
+        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+        See https://symfony.com/doc/current/security/remember_me.html
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" name="_remember_me"> Remember me
+            </label>
+        </div>
+    #}
+
+    <hr class="d-lg-none">
+    <div class="d-flex flex-column justify-content-center align-items-center col-lg-6" >
+        <div class="inner-connexion">
+            <h2 class="text-center label">Vous n'avez pas de compte ?</h2>
+        </div>
+            <a href="{{path('app_inscription')}}" class="btn mt-2 btn-lg btn-primary btn-md">Inscription</a>
+
+
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        <div class="inner-connexion">
+            <h2 class="text-center pt-5 label">Vous avez perdu vos identifiants ?</h2>
+        </div>
+        <a href="#" class="btn mt-2 btn-lg btn-primary btn-md">Cliquez ici</a>
+    </div>
+
+
+</div>
+    
+
+</form>
+
+{% endblock %}

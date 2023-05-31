@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ auteur.name }} - OpaleBD{% endblock %}
+
+{% block content %}
+
+
+			<img src="/assets/img/auteurs/{{ auteur.illustration }}" class="mx-auto d-block" width="250px" heigth="auto">
+			<h1 class="auteur-title text-center mt-1">{{auteur.name}}</h1>
+			<h2 class="auteur-subtitle text-center mb-4">{{auteur.jobs}}</h2>
+			{% for category in auteur.CategoryArtwork %}
+				<div class="text-center">
+				<img  src="/assets/img/categoryoeuvres/{{ category.illustration }}" width="50px" heigth="auto">
+				<p>{{ category.name }}</p>
+				</div>
+			{% endfor %}
+            <p class="auteur-description position-relative start-50 translate-middle-x text-center mt-5" style="width: 1250px">{{auteur.description}}</p>
+
+			<h3 class="ms-4 mt-5 mb-5">Oeuvres:</h3>
+
+
+		<div class="container-fluid row mb-5 mt-5">
+			{% for oeuvre in auteur.oeuvres %}
+				<div class="col-4 ">
+					<img class="d-block mx-auto" src="/assets/img/oeuvres/{{ oeuvre.illustration }}" width="200px" height="auto">
+						<div class="text-center">
+							<a href="{{ path("app_artwork", {"slug":oeuvre.slug}) }}">{{ oeuvre.name }}</a>
+							<p>{{ oeuvre.subtitle }}</p>
+						</div>
+				</div>
+			{% endfor %}
+		</div>
+
+
+
+
+{% endblock %}

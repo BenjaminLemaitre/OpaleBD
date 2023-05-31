@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription - OpaleBD{% endblock %}
+
+{% block script %} 
+<link rel="stylesheet" href="{{ asset('assets/css/register.css')}}">
+{% endblock %}
+
+{% block content %}
+      <h1 class="titre mb-5">Inscription</h1>
+
+		<div class="d-flex justify-content-center">
+      <div class="row">
+            {{ form_start(form) }}
+            <div class="">{{ form_row(form.lastname) }}</div>
+            <div class="">{{ form_row(form.firstname) }}</div>
+            <div class="check my-5 d-flex justify-content-center">
+                  <label class="btn btn-primary w-25 btn btn-lg form-check-label genreone" for="register_gender_0">Homme</label>
+                  <label class="btn btn-outline-danger w-25 btn btn-lg form-check-label genretwo" for="register_gender_1">Femme</label>
+            </div>
+            <div class="d-none">{{ form_row(form.gender) }}</div>
+            <div class="">{{ form_row(form.pseudo) }}</div>
+            <div class="">{{ form_row(form.email) }}</div>
+            <div class="">{{ form_row(form.password) }}</div>
+            <div class="d-flex justify-content-center">{{ form_row(form.submit) }}</div>
+            {{ form_end(form) }}
+      </div>
+		</div>
+
+<script src="{{ asset('assets/js/register.js')}}">
+{% endblock %}
+

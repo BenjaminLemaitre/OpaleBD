@@ -1,0 +1,31 @@
+.titre {
+    color: #00A9D2;
+    font-family: 'GROBOLD';
+    text-align: center;
+    font-size: 3vw !important;
+}
+
+.form-label {
+    color: #00A9D2;
+    font-family: 'GROBOLD';
+    font-size: large;
+}
+
+.check {
+    font-family: 'GROBOLD';
+}
+
+#register_submit {
+    background-color: #FFA707 !important;
+    color: white !important;
+    font-family: 'GROBOLD' !important;
+    padding: 10px 25px;
+    margin-top: 1vw;
+    border: none !important;
+}
+
+
+
+input {
+    width: 60vw !important;
+}

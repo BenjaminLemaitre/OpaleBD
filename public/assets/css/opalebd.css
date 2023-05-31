@@ -1,0 +1,273 @@
+body {
+    background-image: url(../img/background/background_html.jpg);
+    background-position: center;
+}
+
+
+main, .navbar {
+    background-color: #E8E8E8 !important;
+    max-width: 1550px;
+    max-height: auto;
+}
+
+.logo {
+    position: absolute;
+    top:-150px;
+    left:-7vw;
+    z-index: 999;
+}
+
+/* ------ NAVBAR CSS ------- */
+
+nav.navbar-expand-md {
+    align-items: center !important;
+    background-color: #E8E8E8 !important;
+    /* height: 6vh; */
+}
+nav.navbar-expand-md > div.container-fluid > a {
+    position: relative;
+    top: -20px;
+}
+
+nav.navbar-expand-md > div.container-fluid > div.navbar-collapse > ul.navbar-nav > li.nav-item >a.nav-link {
+    margin-right: 15px;
+    color: #00A9D2;
+    font-family: 'grobold', 'Roboto' !important;
+}
+nav.navbar-expand-md > div.container-fluid > div.navbar-collapse > ul.navbar-nav > li.nav-item > ul.dropdown-menu > li.dropdown-item {
+    font-family: 'GROBOLD', 'Roboto' !important;
+}
+nav.navbar-expand-md > div.container-fluid > div.navbar-collapse > form.d-flex > button.btn-success {
+    background-color: #FFA707 !important;
+    border: none;
+    font-family: 'GROBOLD';
+    margin-left: 5px;
+}
+nav.navbar-expand-md > div.container-fluid > div.navbar-collapse > div > .btn-warning {
+    background-color: #FFA707 !important;
+    color: white !important;
+    font-family: 'GROBOLD';
+}
+
+/*--main--*/
+
+main {
+    padding-top: 10vh;
+    padding-bottom: 2vh;
+}
+
+/* ------ BOUTIQUE PRODUITS CSS  ------- */
+.product-container {
+    margin-bottom: 100px; /* pour pas que le footer sois trop coller au produits*/
+}
+
+.product-item {
+    margin-top: 50px;
+}
+
+.product-item h5 {
+    text-transform: uppercase;
+    font-size: 15px;
+    margin-bottom: 3px;
+}
+
+.product-item > .product-subtitle {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.product-item > .product-price {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.product-page-price {
+    font-size: 18px;
+}
+
+.cart-icon {
+    height: 20px;
+    padding-left: 20px;
+}
+
+/* menu burger */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .wrapper{
+    
+    position: absolute;
+    top: -28px;
+    left: -10px;
+    height: 110%;
+    width: 105%;
+    background: linear-gradient(-135deg, #DE9E48, #FFA707);
+    clip-path: circle(25px at calc(0% + 55px) 55px);
+    transition: all 0.3s ease-in-out;
+    z-index: 10;
+    overflow: hidden !important;
+  }
+  #active:checked ~ .wrapper{
+    clip-path: circle(75%);
+    
+  }
+  .menu-btn{
+    position: relative;
+    z-index: 12;
+    left: 20px;
+    /* left: 20px; */
+    top: 2px;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+    background: linear-gradient(-135deg, #DE9E48, #FFA707);
+    transition: all 0.3s ease-in-out;
+  }
+  #active:checked ~ .menu-btn{
+    background: #fff;
+    color: #00A9D2;
+  }
+  #active:checked ~ .menu-btn i:before{
+    content: "\f00d";
+  }
+
+  .liste-responsive {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .wrapper ul{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+    text-align: center;
+  }
+  .wrapper ul li{
+    margin: 15px 0;
+  }
+  .wrapper ul li a{
+    color: none;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 5px 30px;
+    font-family: 'GROBOLD' !important;
+    color: #fff;
+    position: relative;
+    line-height: 50px;
+    transition: all 0.3s ease;
+  }
+  .wrapper ul li a:after{
+    position: absolute;
+    content: "";
+    background: #ffffff00;        /* Obligé de l'enlever c'est nul en mobile */
+    width: 100%;
+    height: 50px;
+    left: 0;
+    border-radius: 50px;
+    transform: scaleY(0);
+    z-index: -1;
+    transition: transform 0.3s ease;
+  }
+  .wrapper ul li a:hover:after{
+    transform: scaleY(1);
+  }
+  .wrapper ul li a:hover{
+    color: white;
+  }
+  .burger{
+    display: none !important;
+  }
+  .content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    text-align: center;
+    width: 100%;
+    color: #202020;
+  }
+  .content .title{
+    font-size: 40px;
+    font-weight: 700;
+  }
+  .content p{
+    font-size: 35px;
+    font-weight: 600;
+  }
+
+
+
+
+
+/* ==================== FOOTER ============== */
+
+.footer-custom {
+    position: relative;
+    max-width: 1550px;
+    max-height: auto;
+    background-color: #00A9D2;
+    color: white;
+}
+
+.or {
+    color: #FFA707;
+    font-size: 1.3vw;
+}
+
+.or1 {
+    color: #FFA707;
+    font-size: 30px;
+}
+
+.lien:hover {
+    color: black;
+}
+
+.partenaire:hover {
+    color: #FFA707 !important;
+}
+
+/* CSS pour la commande dans le choix de l'adresse/transporteur */
+.form-check {
+    background-color: rgb(255,167,7,0.6);
+    padding: 20px 60px;
+    margin-top: 7px;
+    border-radius: 15px;
+}
+
+.col-form-label {
+    font-weight: bold;
+}
+
+.order-summary {
+    background-color: rgb(255,167,7,0.6);
+    padding: 15px;
+    margin-top: 14px;
+    border-radius: 15px;
+}
+
+@media screen and (max-width: 900px) {
+  .cart-icon {
+    position: absolute;
+    right: 15px;
+    top: 18px;
+}
+  .logo-res {
+    position: absolute;
+    left:41%;
+  }
+}

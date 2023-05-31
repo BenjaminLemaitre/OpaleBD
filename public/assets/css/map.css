@@ -1,0 +1,14 @@
+#map {
+    width: 100%;
+    height: 75vh;
+    z-index: 1;
+}
+
+h1 {
+    color: #00A9D2;
+    font-family: 'GROBOLD';
+    margin-bottom: 3vw;
+}
+
+
+

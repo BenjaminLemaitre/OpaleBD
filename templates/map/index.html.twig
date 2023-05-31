@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Carte - OpaleBD{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+<link rel="stylesheet" href="{{ asset('assets/css/map.css')}}">
+{% endblock %}
+
+
+
+{% block content %}
+
+<h1 class="text-center">Carte des manifestations:</h1>
+
+<p class="d-none" id="coor">
+{% for item in manif %}
+    [{{ item.latitude }},{{ item.longitude }}]
+{% endfor %}
+</p>
+
+<p class="d-none" id="description">
+{% for item in manif %}
+    [<b><a href="{{ path('app_manif', {"slug": item.slug }) }}">{{ item.name }}</a></b> <br> <small style="font-size: 0.75rem">{{ item.localisation }}</small>]
+{% endfor %}
+</p>
+
+    <div id="map"></div>
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script>
+<script type="text/javascript" src="/assets/js/map.js"></script>
+
+{% endblock %}

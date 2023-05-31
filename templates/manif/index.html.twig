@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Manifestations - OpaleBD{% endblock %}
+
+{% block content %}
+
+			<img src="/assets/img/affiches/{{ manif.affiche }}" class="mx-auto d-block" width="300px" height="auto">
+			<h1 class="manif-title mb-2 text-center">{{manif.name}}</h1>
+            <p class="manif-adresse text-center">{{manif.localisation}}</p>
+			<div class="container-fluid row d-flex justify-content-center mb-5 mt-1">
+			{% for category in manif.Categorie %}
+			<div class="text-center col-1">
+				<img src="/assets/img/categoryoeuvres/{{ category.illustration }}" width="50px" height="auto">
+				<p style="font-size:0.70rem"><small>{{ category.name }}</small></p>
+			</div>
+			{% endfor %}
+			</div>
+
+			<h3 class="ms-4 mt-5 mb-5">Auteurs présent à {{manif.name}}:</h3>
+
+					<div class="container-fluid row mb-5 mt-5">
+			{% for auteur in manif.auteur %}
+				<div class="col-3 mx-auto mb-3">
+					<img class="d-block mx-auto" src="/assets/img/auteurs/{{ auteur.illustration }}" width="150px" height="150px">
+						<div class="text-center">
+							<a href="{{ path("app_auteurs", {"slug":auteur.slug}) }}">{{ auteur.name }}</a>
+						</div>
+				</div>
+			{% endfor %}
+		</div>
+
+{% endblock %}

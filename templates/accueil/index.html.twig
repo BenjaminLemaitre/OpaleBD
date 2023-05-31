@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue sur OpaleBD{% endblock %}
+
+{% block css %} <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+  <link rel="stylesheet" href="{{ asset('assets/css/accueil.css')}}">
+{% endblock %}
+
+{% block script %} 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js" integrity="sha512-j+F4W//4Pu39at5I8HC8q2l1BNz4OF3ju39HyWeqKQagW6ww3ZF9gFcu8rzUbyTDY7gEo/vqqzGte0UPpo65QQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>  
+<script src="{{ asset('assets/js/resultat.js')}}" defer></script> 
+<script src="{{ asset("assets/js/carousel.js") }}" defer></script>
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <h1 class="titre-slide mb-5">Affiches de manifestions</h1>
+  <ul class="control" id="custom-control">
+    <li class="prev">
+      <i class="fas fa-angle-left fa-2x"></i>
+    </li>
+    <li class="next">
+      <i class="fas fa-angle-right fa-2x"></i>
+    </li>
+  </ul>
+  <div class="my-slider mb-1">
+  {% for manifs in manif %}
+    
+    
+    <a href="{{ path('app_manif', {"slug": manifs.slug }) }}" >
+    <img src="{{ asset('/assets/img/affiches/') }}{{ manifs.affiche }}" alt="" class="img-carousel">
+    </a>
+  {% endfor %}
+
+  </div>
+</div>
+
+
+{% endblock %}

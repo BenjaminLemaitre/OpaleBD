@@ -1,0 +1,21 @@
+<div class="bg-white" style="z-index: 999 !important"> 
+    {% for auteur in auteurs %}
+        <a href="{{ path("app_auteurs", {"slug":auteur.slug}) }}">
+        <img src="/assets/img/auteurs/{{ auteur.illustration }}" width="30px" heigth="auto">
+        <p>{{auteur.name}}</p>
+        </a>
+    {% endfor %}
+
+    {% for oeuvre in oeuvres %}
+        <a href="{{ path("app_artwork", {"slug":oeuvre.slug}) }}">
+        <p>{{oeuvre.name}}</p>
+        </a>
+    {% endfor %}
+
+    {% for manif in manifs %}
+        <a href="{{ path("app_manif", {"slug":manif.slug}) }}">
+        <p>{{manif.name}}</p>
+        </a>
+    {% endfor %}
+
+</div>

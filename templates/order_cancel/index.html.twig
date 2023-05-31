@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Erreur de paiement - Opal BD{% endblock %}
+
+{% block content %}
+    <h2>Erreur de paiement</2>
+    <p>
+        Bonjour <strong>{{ order.user.firstname}} {{ order.user.lastname}}.</strong> <br/><br/>
+        Votre paiement a échoué pour votre commande n° <strong>{{ order.reference }}</strong>. <br/>
+        Une confirmation d'erreur de votre commande vous a été envoyé par mail à l'adresse <strong>{{ order.user.email }}</strong>.
+    </p>
+    <a href="{{ path('app_order') }}" class="btn btn-success">Réessayer le paiement</a>
+{% endblock %}

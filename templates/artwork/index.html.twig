@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ArtworkController!{% endblock %}
+
+{% block content %}
+
+			<img src="/assets/img/oeuvres/{{oeuvre.illustration}}" class="mx-auto d-block" width="200px" heigth="auto">
+			<div class="oeuvre-title text-center mt-2">
+			<h1>{{oeuvre.name}}</h1>
+			<a href="{{ path("app_auteurs", {"slug":oeuvre.auteur.slug}) }}">{{ oeuvre.auteur.name }}</a>
+			</div>
+            <p class="oeuvre-description position-relative start-50 translate-middle-x text-center mt-5">{{oeuvre.description}}</p>
+
+{% endblock %}

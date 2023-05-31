@@ -1,0 +1,114 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Agenda - OpaleBD{% endblock %}
+
+{% block css %}<link rel="stylesheet" href="{{ asset('assets/css/agenda.css')}}">{% endblock %}
+
+{% block script %}
+<script src="{{ asset("assets/js/agenda.js") }}" defer></script>
+{% endblock %}
+
+{% block content %}
+
+
+
+<h1 class="titre text-center mb-5">Agenda des manifestations</h1>
+
+
+<div class="row">
+	<div class="accordion mx-auto w-50 mb-3" id="accordionAuteurs">
+		<div class="accordion-item">
+			<h2 class="accordion-header" id="headingOne">
+				<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+					Filtres
+				</button>
+			</h2>
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="row mx-1 mt-2">
+                            {% for key, categorie in category %} 
+                                <div class="label-container col-6">
+                                    <label class="form-check-label w-100 d-flex justify-content-center" for="categorie_{{key + 1}}"><img src="/assets/img/categoryoeuvres/{{categorie.illustration}}" width="50px"></label>
+                                    <p class="text-center">{{categorie.name}}</p>
+                                </div>
+                            {% endfor %}
+                    <div class="">
+                        {{ form_start(form) }}
+                            <div class="d-none">{{ form_row(form.string) }}</div>
+                            <div class="d-none">{{ form_row(form.categorie) }}</div>
+                            <div class="d-flex justify-content-center">{{ form_row(form.submit) }}</div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{# <div>
+    {% for key, categorie in category %} 
+        <label for="categorie_{{key + 1}}"><img src="/assets/img/categoryoeuvres/{{categorie.illustration}}"></label>
+    {% endfor %}
+</div> #}
+
+
+
+    <table class="table table-bordered border-dark">
+    <thead>
+        <tr class="table-primary border-dark">
+            <th scope="col">Catégories</th>
+            <th scope="col">Adresse</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Date de début</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for manifs in manif %}
+        <tr>
+            <th scope="row">
+            {% for category in manifs.Categorie %}
+				<img data-bs-toggle="tooltype" data-bs-placement="top" title="{{ category.name }}" src="/assets/img/categoryoeuvres/{{ category.illustration }}" width="30px" heigth="auto">
+			{% endfor %}</th>
+            <td>{{ manifs.localisation }}</td>
+            <td><a href="{{ path('app_manif', {"slug": manifs.slug }) }}">{{ manifs.name }}</a></td>
+            <td>{{ manifs.date|date("d/m/y") }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+
+    <table class="table-responsive table-bordered border-dark">
+    <thead>
+        <tr class="table-primary border-dark">
+            <th scope="col">Catégories</th>
+            <th scope="col">Adresse</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Date de début</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for manifs in manif %}
+        <tr>
+            <th scope="row">
+            {% for category in manifs.Categorie %}
+				<img data-bs-toggle="tooltype" data-bs-placement="top" title="{{ category.name }}" src="/assets/img/categoryoeuvres/{{ category.illustration }}" width="30px" heigth="auto">
+			{% endfor %}</th>
+            <td>{{ manifs.localisation }}</td>
+            <td><a href="{{ path('app_manif', {"slug": manifs.slug }) }}">{{ manifs.name }}</a></td>
+            <td>{{ manifs.date|date("d/m/y") }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+
+    <script>
+
+const checkbox = document.querySelectorAll(".form-check");
+{# console.log(checkbox); #}
+checkbox.forEach(check=>{
+    check.classList.add("col-6");
+})
+
+const submit = document.getElementById('submit');
+submit.parentNode.classList.add("d-flex", "justify-content-center");
+</script>
+
+{% endblock %}

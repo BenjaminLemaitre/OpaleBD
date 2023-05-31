@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon compte - OpaleBD{% endblock %}
+
+{% block content %}
+
+    {% if app.user %}
+
+    <a href="{{ path('app_logout') }}" class="btn mt-2 btn-lg btn-primary btn-md">Déconnexion</a>
+
+    {% endif %}
+
+
+<h1>Mon compte</h1>
+<p>Bienvenue {{ app.user.pseudo }} sur votre compte OpaleBD</p>
+<br>
+<a href="{{ path('app_password') }}">Modifier mon mot de passe</a><br/>
+<a href="{{ path('app_account_address') }}">Gérer mes adresses</a><br/>
+<a href="{{ path('app_account_order') }}">Mes commandes</a>
+<br>
+_ Afficher les infos
+{% endblock %}
